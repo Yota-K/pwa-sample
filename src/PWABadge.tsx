@@ -1,26 +1,23 @@
 import './PWABadge.css'
-
 import { useRegisterSW } from 'virtual:pwa-register/react'
 
-function PWABadge() {
+const PWABadge: React.FC = () => {
   // periodic sync is disabled, change the value to enable it, the period is in milliseconds
-// You can remove onRegisteredSW callback and registerPeriodicSync function
+  // You can remove onRegisteredSW callback and registerPeriodicSync function
   const period = 0
 
   const {
-    
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
   } = useRegisterSW({
-    onRegisteredSW(swUrl, r) {
+    onRegisteredSW(swUrl: string, r: ServiceWorkerRegistration | undefined) {
       if (period <= 0) return
       if (r?.active?.state === 'activated') {
         registerPeriodicSync(period, swUrl, r)
       }
       else if (r?.installing) {
-        r.installing.addEventListener('statechange', (e) => {
-          /** @type {ServiceWorker} */
-          const sw = e.target
+        r.installing.addEventListener('statechange', (e: Event) => {
+          const sw = e.target as ServiceWorker
           if (sw.state === 'activated')
             registerPeriodicSync(period, swUrl, r)
         })
@@ -28,20 +25,16 @@ function PWABadge() {
     },
   })
 
-  function close() {
-    
+  const close = (): void => {
     setNeedRefresh(false)
   }
 
   return (
     <div className="PWABadge" role="alert" aria-labelledby="toast-message">
-      { (needRefresh)
-      && (
+      {needRefresh && (
         <div className="PWABadge-toast">
           <div className="PWABadge-message">
             <span id="toast-message">New content available, click on reload button to update.</span>
-              
-              
           </div>
           <div className="PWABadge-buttons">
             <button className="PWABadge-toast-button" onClick={() => updateServiceWorker(true)}>Reload</button>
@@ -61,7 +54,7 @@ export default PWABadge
  * @param swUrl {string}
  * @param r {ServiceWorkerRegistration}
  */
-function registerPeriodicSync(period, swUrl, r) {
+function registerPeriodicSync(period: number, swUrl: string, r: ServiceWorkerRegistration): void {
   if (period <= 0) return
 
   setInterval(async () => {
@@ -79,4 +72,4 @@ function registerPeriodicSync(period, swUrl, r) {
     if (resp?.status === 200)
       await r.update()
   }, period)
-}
+} 

@@ -20,11 +20,14 @@ devDependencies:
   '@eslint/js':
     specifier: ^9.18.0
     version: 9.23.0
+  '@types/node':
+    specifier: ^22.13.13
+    version: 22.13.13
   '@types/react':
-    specifier: ^19.0.8
+    specifier: ^19.0.12
     version: 19.0.12
   '@types/react-dom':
-    specifier: ^19.0.3
+    specifier: ^19.0.4
     version: 19.0.4(@types/react@19.0.12)
   '@vite-pwa/assets-generator':
     specifier: ^0.2.6
@@ -47,9 +50,12 @@ devDependencies:
   globals:
     specifier: ^15.14.0
     version: 15.15.0
+  typescript:
+    specifier: ^5.8.2
+    version: 5.8.2
   vite:
     specifier: ^6.0.11
-    version: 6.2.3
+    version: 6.2.3(@types/node@22.13.13)
   vite-plugin-pwa:
     specifier: ^0.21.1
     version: 0.21.2(@vite-pwa/assets-generator@0.2.6)(vite@6.2.3)(workbox-build@7.3.0)(workbox-window@7.3.0)
@@ -1811,6 +1817,12 @@ packages:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
     dev: true
 
+  /@types/node@22.13.13:
+    resolution: {integrity: sha512-ClsL5nMwKaBRwPcCvH8E7+nU4GxHVx1axNvMZTFHMEfNI7oahimt26P5zjVCRrjiIWj6YFXfE1v3dEp94wLcGQ==}
+    dependencies:
+      undici-types: 6.20.0
+    dev: true
+
   /@types/react-dom@19.0.4(@types/react@19.0.12):
     resolution: {integrity: sha512-4fSQ8vWFkg+TGhePfUzVmat3eC14TXYSsiiDSLI0dVLsrm9gZFABjPy/Qu6TKgl1tq1Bu1yDsuQgY3A3DOjCcg==}
     peerDependencies:
@@ -1859,7 +1871,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.10)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 6.2.3
+      vite: 6.2.3(@types/node@22.13.13)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4343,6 +4355,12 @@ packages:
       reflect.getprototypeof: 1.0.10
     dev: true
 
+  /typescript@5.8.2:
+    resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: true
+
   /unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
     engines: {node: '>= 0.4'}
@@ -4359,6 +4377,10 @@ packages:
       '@antfu/utils': 0.7.10
       defu: 6.1.4
       jiti: 1.21.7
+    dev: true
+
+  /undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
     dev: true
 
   /unicode-canonical-property-names-ecmascript@2.0.1:
@@ -4438,14 +4460,14 @@ packages:
       debug: 4.4.0
       pretty-bytes: 6.1.1
       tinyglobby: 0.2.12
-      vite: 6.2.3
+      vite: 6.2.3(@types/node@22.13.13)
       workbox-build: 7.3.0
       workbox-window: 7.3.0
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@6.2.3:
+  /vite@6.2.3(@types/node@22.13.13):
     resolution: {integrity: sha512-IzwM54g4y9JA/xAeBPNaDXiBF8Jsgl3VBQ2YQ/wOY6fyW3xMdSoltIV3Bo59DErdqdE6RxUfv8W69DvUorE4Eg==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
@@ -4485,6 +4507,7 @@ packages:
       yaml:
         optional: true
     dependencies:
+      '@types/node': 22.13.13
       esbuild: 0.25.1
       postcss: 8.5.3
       rollup: 4.37.0
