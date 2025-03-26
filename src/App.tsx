@@ -3,14 +3,8 @@ import './App.css'
 
 export const Root: React.FC = () => {
   return (
-    <div className="app">
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-        </ul>
-      </nav>
-      <main>
+    <div className="flex h-screen">
+      <main className="flex-1 overflow-auto">
         <Outlet />
       </main>
     </div>

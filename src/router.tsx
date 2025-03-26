@@ -1,6 +1,9 @@
 import { createRouter, createRootRoute, createRoute } from '@tanstack/react-router'
 import { Home } from './routes/Home'
 import { About } from './routes/About'
+import { Users } from './routes/Users'
+import { Analytics } from './routes/Analytics'
+import { Settings } from './routes/Settings'
 import { Root } from './App'
 
 const rootRoute = createRootRoute({
@@ -19,7 +22,31 @@ const aboutRoute = createRoute({
   component: About,
 })
 
-const routeTree = rootRoute.addChildren([homeRoute, aboutRoute])
+const usersRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/users',
+  component: Users,
+})
+
+const analyticsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/analytics',
+  component: Analytics,
+})
+
+const settingsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/settings',
+  component: Settings,
+})
+
+const routeTree = rootRoute.addChildren([
+  homeRoute,
+  aboutRoute,
+  usersRoute,
+  analyticsRoute,
+  settingsRoute,
+])
 
 export const router = createRouter({ routeTree })
 
