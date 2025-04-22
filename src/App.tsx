@@ -1,15 +1,15 @@
 import { Outlet } from '@tanstack/react-router'
-import { Sidebar } from './components/Sidebar'
 import './App.css'
+import Header from './components/Header'
 
 export const Root: React.FC = () => {
   return (
-    <div className="flex min-h-screen">
-      <Sidebar />
-      <main className="flex-1 overflow-auto p-6 pt-20 lg:pt-6">
+    <>
+      <Header />
+      <main className="mt-16 p-8">
         <Outlet />
       </main>
-    </div>
+    </>
   )
 }
 
