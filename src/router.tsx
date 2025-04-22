@@ -1,7 +1,6 @@
 import { createRouter, createRootRoute, createRoute } from '@tanstack/react-router'
 import { Home } from './routes/Home'
-import { Dictionary } from './routes/Dictionary'
-import { Learning } from './routes/Learning'
+import { Lesson } from './routes/Lesson'
 import { Root } from './App'
 
 const rootRoute = createRootRoute({
@@ -14,22 +13,15 @@ const homeRoute = createRoute({
   component: Home,
 })
 
-const dictionaryRoute = createRoute({
+const lessonRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/dictionary',
-  component: Dictionary,
-})
-
-const learningRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/learning',
-  component: Learning,
+  path: '/lesson/$id',
+  component: Lesson,
 })
 
 const routeTree = rootRoute.addChildren([
   homeRoute,
-  dictionaryRoute,
-  learningRoute,
+  lessonRoute,
 ])
 
 export const router = createRouter({ routeTree })

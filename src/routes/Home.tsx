@@ -5,6 +5,7 @@ import {
 } from "~/components/ui/carousel"
 import { Card, CardContent } from "~/components/ui/card"
 import Autoplay from "embla-carousel-autoplay"
+import { Link } from "@tanstack/react-router";
 
 export const Home: React.FC = () => {
   return (
@@ -44,11 +45,13 @@ export const Home: React.FC = () => {
             {Array.from({ length: 10 }).map((_, index) => (
               <CarouselItem key={index} className="md:basis-1/4 lg:basis-1/5">
                 <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-4">
-                      <span className="text-3xl font-semibold">{index + 1}</span>
-                    </CardContent>
-                  </Card>
+                  <Link to="/lesson/$id" params={{ id: String(index + 1) }} className="block">
+                    <Card className="cursor-pointer hover:shadow-md transition-shadow">
+                      <CardContent className="flex aspect-square items-center justify-center p-4">
+                        <span className="text-3xl font-semibold">{index + 1}</span>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </div>
               </CarouselItem>
             ))}
