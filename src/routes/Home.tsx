@@ -4,12 +4,23 @@ import {
   CarouselItem,
 } from "~/components/ui/carousel"
 import { Card, CardContent } from "~/components/ui/card"
+import Autoplay from "embla-carousel-autoplay"
 
 export const Home: React.FC = () => {
   return (
     <div className="space-y-6">
       <div className="py-4">
-        <Carousel className="w-full">
+        <Carousel 
+          className="w-full"
+          opts={{
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 2000,
+            }),
+          ]}
+        >
           <CarouselContent>
             {Array.from({ length: 5 }).map((_, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
