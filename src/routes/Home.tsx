@@ -15,6 +15,7 @@ export const Home: React.FC = () => {
           className="w-full"
           opts={{
             loop: true,
+            align: "start",
           }}
           plugins={[
             Autoplay({
@@ -29,10 +30,10 @@ export const Home: React.FC = () => {
                   <CardContent>
                     <img className="rounded-md" src="https://storage.googleapis.com/studio-cms-assets/projects/EXawvdJVqD/s-1920x1080_v-frms_webp_f0affb04-5b66-45a9-ba8a-79fdf48a689d_small.webp" />
                     <div className="mt-4 flex gap-2">
-                      <div className="inline-block bg-[#ecf4f9] border border-[#ecf4f9] rounded text-[#31719b] font-[var(--s-font-39948cf2)] text-base font-medium h-auto leading-none p-1 px-2 text-left w-auto max-w-full justify-start">STEP01</div>
+                      <div className="inline-block bg-[#ecf4f9] border border-[#ecf4f9] rounded text-[#31719b] font-[var(--s-font-39948cf2)] text-base font-medium h-auto leading-none p-1 px-2 text-left w-auto max-w-full justify-start">STEP0{index + 1}</div>
                       <div className="inline-block bg-[#ecf4f9] border border-[#31719b] rounded text-[#31719b] font-[var(--s-font-39948cf2)] text-base font-medium h-auto leading-none p-1 px-2 text-left w-auto max-w-full justify-start">Ver1.0</div>
                     </div>
-                    <h3 className="text-xl mt-2">OTHERS</h3>
+                    <h3 className="text-xl mt-2">STEP {index + 1}</h3>
                     <div className="bg-gray-100 rounded-md p-2 mt-2 mb-4">
                       <h4 className="font-bold">Contents</h4>
                       <p className="break-words text-gray-800">travel/lock/confuse/contain/stretch/award/guard/trap/plant/organize/invent/wonder/trade/grow/bite/mind/promise</p>
