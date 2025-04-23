@@ -3,8 +3,8 @@ import { CardHeader, CardContent } from './ui/card'
 
 export const Header = () => {
   return (
-    <CardHeader className="fixed top-0 left-0 right-0 z-10 border-t-0 shadow-md bg-white">
-      <CardContent className="flex items-center justify-between p-4">
+    <CardHeader className="fixed top-0 left-0 right-0 z-10 border-t-0 p-2 shadow-md bg-white">
+      <CardContent className="flex items-center justify-between">
         <Link to="/" className="text-xl font-bold">
           <div className="flex items-center">
             <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
