@@ -4,7 +4,6 @@ import {
   CarouselItem,
 } from "~/components/ui/carousel"
 import { Card, CardContent } from "~/components/ui/card"
-import { Button } from "~/components/ui/button"
 import Autoplay from "embla-carousel-autoplay"
 import { Link } from "@tanstack/react-router";
 
@@ -29,6 +28,10 @@ export const Home: React.FC = () => {
                 <Card>
                   <CardContent>
                     <img className="rounded-md" src="https://storage.googleapis.com/studio-cms-assets/projects/EXawvdJVqD/s-1920x1080_v-frms_webp_f0affb04-5b66-45a9-ba8a-79fdf48a689d_small.webp" />
+                    <div className="mt-4 flex gap-2">
+                      <div className="inline-block bg-[#ecf4f9] border border-[#ecf4f9] rounded text-[#31719b] font-[var(--s-font-39948cf2)] text-base font-medium h-auto leading-none p-1 px-2 text-left w-auto max-w-full justify-start">STEP01</div>
+                      <div className="inline-block bg-[#ecf4f9] border border-[#31719b] rounded text-[#31719b] font-[var(--s-font-39948cf2)] text-base font-medium h-auto leading-none p-1 px-2 text-left w-auto max-w-full justify-start">Ver1.0</div>
+                    </div>
                     <h3 className="text-xl mt-2">OTHERS</h3>
                     <div className="bg-gray-100 rounded-md p-2 mt-2 mb-4">
                       <h4 className="font-bold">Contents</h4>
@@ -44,7 +47,7 @@ export const Home: React.FC = () => {
       </div>
 
       <div className="py-4">
-        <h2 className="text-2xl mb-2">視聴履歴</h2>
+        <h2 className="text-2xl font-bold mb-2 text-[#18384D]">視聴履歴</h2>
         <Carousel className="w-full">
           <CarouselContent>
             {Array.from({ length: 10 }).map((_, index) => (
